@@ -50,6 +50,30 @@ public class No {
         this.noFilhoDireito = noFilhoDireito;
     }
 
+    public boolean podeSerNoRaiz() {
+        boolean condicao = this.getNoPai() == null;
+
+        return condicao;
+    }
+
+    public boolean temAlgumNoFilho() {
+        boolean condicao = this.getNoFilhoEsquerdo() != null || this.getNoFilhoDireito() != null;
+
+        return condicao;
+    }
+
+    public boolean ehNoInterno() {
+        boolean condicao = this.temAlgumNoFilho();
+
+        return condicao;
+    }
+
+    public boolean ehNoExterno() {
+        boolean condicao = !this.temAlgumNoFilho();
+
+        return condicao;
+    }
+
     public String toString() {
         String dado = this.getDado();
         int largura = dado.length() + 4;
